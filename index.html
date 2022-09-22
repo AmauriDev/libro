@@ -23,15 +23,15 @@
 			<h1>Agregar libros</h1>
 			<form class="form">
 				<label>Titulo</label>
-				<input type="text" />
+				<input type="text" name="titulo" id="titutlo"/>
 				<label>Autor</label>
-				<select>
+				<select name="autor" id="autor">
 					<option>Larry Ullma</option>
 					<option>Jon Duckett</option>
 					<option>Jerry Lee Ford</option>
 				</select>
 				<label>Editorial</label>
-				<select>
+				<select name="editorial" id="editorial">
 					<option>Ninguno</option>
 					<option>Willey</option>
 					<option>Pearson</option>
@@ -39,25 +39,25 @@
 					<option>Peachpit press</option>
 				</select>
 				<label>ISBN</label>
-				<input type="text"/>
+				<input type="text" name="isbn" id="isbn" />
 				<label>Descripcion</label>
-				<textarea></textarea>
+				<textarea name="descripcion" id="descripcion"></textarea>
 				<label>Capitulos</label>
-				<input type="number" />
+				<input type="number" name="capitulo" id="capitulo"/>
 				<label>Paginas</label>
-				<input type="number"/>
+				<input type="number" name="paginas" id="paginas"/>
 				<label>Cover</label>
 				<input type="file">
 				<label>Categoria</label>
-				<select multiple="multple">
+				<select multiple="multple" name="categorias" id="categorias">
 					<option>Web Development</option>
 					<option>Programming</option>
 					<option>Web Design</option>
 				</select>
 				<label>Tipo de texto</label>
-				<input type="text"/>
+				<input type="text" name="tipodetexto" id="tipodetexto"/>
 				<label>Fecha de publicacion</label>
-				<input type="text"/>
+				<input type="text" name="fechadepublicacion" id="fechadepublicacion"/>
 				<input type="submit" value="Enviar" />
 			</form>
 		</article>
