@@ -1,0 +1,31 @@
+CREATE DATABASE book;
+
+
+CREATE TABLE author(
+autor_id NOT NULL UNSIGNED SMALLINT AUTO_INCREMENT,
+author_name NOT NULL VARCHAR(15),
+author_last_name NOT NULL VARCHAR(20),
+PRIMARY KEY(author_id)
+);
+
+CREATE TABLE editorial(
+editorial_id NOT NULL UNSIGNED SMALLINT AUTO_INCREMENT,
+editorial_name NOT NULL VARCHAR(20),
+editorial_web NOT NULL VARCHAR(100),
+PRIMARY KEY(editorial_id)
+);
+
+CREATE TABLE books(
+book_id NOT NULL UNSIGNED SMALLINT,
+autor_id NOT NULL UNSIGNED SMALLINT,
+editorial_id NOT NULL UNSIGNED SMALLINT,
+book_title NOT NULL VARCHAR(50),
+book_isbn NOT NULL VARCHAR(12),
+book_description NOT NULL TEXT,
+book_chapter NOT NULL SMALLINT,
+book_pages NOT NULL SMALLINT,
+book_cover NOT NULL CHAR(255),
+book_type_text NOT NULL VARCHAR(100),
+book_date NOT NULL DATE,
+PRIMARY KEY(book_id)
+);
