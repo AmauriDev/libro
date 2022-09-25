@@ -89,4 +89,37 @@ function query($tb, $field, $content, $where,  $id){
 	return $query = "UPDATE ".$tb." SET ".$field." = '$content' WHERE ".$where." = \"$id\"";
 }
 
+function leerAuthor(){
+	$con = coneccion();
+	//Hacemos una consulta 
+	$db = 'book';
+	mysqli_select_db($con, $db); //Seleccionamo la base de datos
+	$query = "SELECT author_id, author_name, author_last_name FROM author";
+	$result = mysqli_query($con, $query);
+	$num = mysqli_num_rows($result);
+	if($num >= 1){
+	while($row = mysqli_fetch_array($result, MYSQLI_BOTH)){
+		echo "<option value=\"$row[0]\">".$row[1].' '.$row[2].'</option>';
+		}
+	}
+}
+
+function leerEditorial(){
+	$con = coneccion();
+	mysqli_select_db($con, 'book');
+	$select = "SELECT editorial_id, editorial_name FROM editorial";
+	$query = mysqli_query($con, $select);
+	if($query){
+		$num = mysqli_num_rows($query);
+		if($query >= 1){
+			while($row = mysqli_fetch_array($query, MYSQLI_BOTH)){
+				echo "<option value=\"$row[0]\">$row[1]</option>";
+			}// end while
+		}
+		else{echo 'No hay editoriales..';}
+	}else{
+		echo 'Consulta error ';
+	}
+}// end function
+
 ?>

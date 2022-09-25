@@ -21,7 +21,7 @@
 		</nav>
 		<article>
 			<h1>Agregar libros</h1>
-			<form class="form">
+			<form class="form" method="post" action="php/ver.php" target="_blank">
 				<label>Titulo</label>
 				<input type="text" name="titulo" id="titutlo"/>
 				<label>Autor</label>
@@ -29,38 +29,23 @@
 					<?php 
 						include('php/funciones.php'); 
 
-						$con = coneccion();
-						//Hacemos una consulta 
-						$db = 'book';
-						mysqli_select_db($con, $db); //Seleccionamo la base de datos
-						$query = "SELECT author_id, author_name, author_last_name FROM author";
-						$result = mysqli_query($con, $query);
-						$num = mysqli_num_rows($result);
-						if($num >= 1){
-							while($row = mysqli_fetch_array($result, MYSQLI_BOTH)){
-								echo "<option value=\"$row[0]\">".$row[1].' '.$row[2].'</option>';
-							}
-						}
+						leerAuthor();
 					?>
 				</select>
 				<label>Editorial</label>
 				<select name="editorial" id="editorial">
-					<option>Ninguno</option>
-					<option>Willey</option>
-					<option>Pearson</option>
-					<option>Course Technology</option>
-					<option>Peachpit press</option>
+					<?php leerEditorial(); ?>
 				</select>
 				<label>ISBN</label>
 				<input type="text" name="isbn" id="isbn" />
 				<label>Descripcion</label>
 				<textarea name="descripcion" id="descripcion"></textarea>
 				<label>Capitulos</label>
-				<input type="number" name="capitulo" id="capitulo"/>
+				<input type="number" name="capitulos" id="capitulos"/>
 				<label>Paginas</label>
 				<input type="number" name="paginas" id="paginas"/>
 				<label>Cover</label>
-				<input type="file">
+				<input type="file" name="cover" id="cover">
 				<label>Categoria</label>
 				<select multiple="multple" name="categorias" id="categorias">
 					<option>Web Development</option>
@@ -70,7 +55,7 @@
 				<label>Tipo de texto</label>
 				<input type="text" name="tipodetexto" id="tipodetexto"/>
 				<label>Fecha de publicacion</label>
-				<input type="text" name="fechadepublicacion" id="fechadepublicacion"/>
+				<input type="date" name="fechadepublicacion" id="fechadepublicacion"/>
 				<input type="submit" value="Enviar" />
 			</form>
 		</article>
