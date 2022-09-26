@@ -16,7 +16,8 @@
 			<ul class="list">
 				<li class="list_items"><a href="autor.html">Agregar autor</a></li>
 				<li class="list_items"><a href="editorial.html">Agregar editorial</a></li>
-				<li class="list_items"><a href="index.html">Agregar libros</a></li>
+				<li class="list_items"><a href="libro.php">Agregar libros</a></li>
+				<li class="list_items"><a href="php/verlibros.php">Ver libros</a></li>
 			</ul>
 		</nav>
 		<article>

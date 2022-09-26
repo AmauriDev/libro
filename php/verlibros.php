@@ -9,7 +9,8 @@ if($query){
 	$num = mysqli_num_rows($query);
 	if($num >= 1){
 		while($row = mysqli_fetch_assoc($query)){
-			echo '<b>Titulo</b> '.$row['book_title'].' <b>Autor</b> '.$row['author_name'].' <b>Editorial</b> <a href=\''.$row['editorial_web'].'\'>'. $row['editorial_name'].'</a></br>';
+			echo '<b>Titulo</b> '.$row['book_title'].' <b>Autor</b> '.$row['author_name'].
+			' <b>Editorial</b> <a href=\''.$row['editorial_web'].'\'>'. $row['editorial_name'].'</a></br>';
 		}
 	}else{
 		echo 'No hay resultados';

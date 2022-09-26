@@ -11,7 +11,7 @@
 	$autor = $_POST['autor']; // selector
 	$editorial = $_POST['editorial']; // selector
 	$isbn = $_POST['isbn'];
-	$descripcion = $_POST['descripcion']; //textarea
+	$descripcion = addslashes($_POST['descripcion']); //textarea
 	$capitulos = $_POST['capitulos']; // Numeros
 	$paginas = $_POST['paginas'];
 	$cover = $_FILE['cover'];
