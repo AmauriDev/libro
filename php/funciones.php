@@ -118,7 +118,7 @@ function leerEditorial(){
 				echo "<option value=\"$row[0]\">$row[1]</option>";
 			}// end while
 		}
-		else{echo '<option>No hay editoriales</option>';}
+		else {echo '<option>No hay editoriales</option>';}
 	}else{
 		echo 'Consulta error ';
 	}

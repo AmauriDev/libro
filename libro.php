@@ -27,15 +27,11 @@
 				<input type="text" name="titulo" id="titutlo"/>
 				<label>Autor</label>
 				<select name="autor" id="autor">
-					<?php 
-						include('php/funciones.php'); 
-
-						leerAuthor();
-					?>
+					<script src="js/getauthor.js"></script>
 				</select>
 				<label>Editorial</label>
 				<select name="editorial" id="editorial">
-					<?php leerEditorial(); ?>
+					<script src="js/geteditorial.js"></script>
 				</select>
 				<label>ISBN</label>
 				<input type="text" name="isbn" id="isbn" />
@@ -61,5 +57,6 @@
 			</form>
 		</article>
 	</section>
+	
 </body>
 </html>
