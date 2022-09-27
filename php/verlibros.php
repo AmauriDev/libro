@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ver lista de libros</title>
+</head>
+<body>
+	<nav>
+		<ul>
+			<li>Autores</li>
+			<li>Libros</li>
+			<li>Editorial</li>
+		</ul>
+	</nav>
 <?php 
 include('funciones.php');
 $con = coneccion();
@@ -19,3 +32,5 @@ if($query){
 	echo 'Consulta no enviada';
 }
 ?>
+</body>
+</html>

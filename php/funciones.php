@@ -101,6 +101,8 @@ function leerAuthor(){
 	while($row = mysqli_fetch_array($result, MYSQLI_BOTH)){
 		echo "<option value=\"$row[0]\">".$row[1].' '.$row[2].'</option>';
 		}
+	}else{
+		echo '<option>No hay autores</option>';
 	}
 }
 
@@ -116,7 +118,7 @@ function leerEditorial(){
 				echo "<option value=\"$row[0]\">$row[1]</option>";
 			}// end while
 		}
-		else{echo 'No hay editoriales..';}
+		else{echo '<option>No hay editoriales</option>';}
 	}else{
 		echo 'Consulta error ';
 	}
