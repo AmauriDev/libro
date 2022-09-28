@@ -26,12 +26,12 @@
 				<label>Titulo</label>
 				<input type="text" name="titulo" id="titutlo"/>
 				<label>Autor</label>
-				<select name="autor" id="autor">
-					<script src="js/getauthor.js"></script>
+				<select name="autor" id="author">
+					<!--<script src="js/getauthor.js"></script>--><!-- Remplazado-->				
 				</select>
 				<label>Editorial</label>
 				<select name="editorial" id="editorial">
-					<script src="js/geteditorial.js"></script>
+					<!--<script src="js/geteditorial.js"></script>--><!-- Remplazado-->
 				</select>
 				<label>ISBN</label>
 				<input type="text" name="isbn" id="isbn" />
@@ -57,6 +57,20 @@
 			</form>
 		</article>
 	</section>
+	<script src="js/getdatafromdb.js"></script>
+	<script>
+	getDataFromDB('author', 'leerauthor.php');
+	getDataFromDB('editorial', 'leereditorial.php');
+	var author = document.getElementById('author');
+	var editorial = document.getElementById('editorial');
 	
+	/*author.addEventListener('click', function(){
+		getDataFromDB('author', 'leerauthor.php');
+	}, false);
+	
+	editorial.addEventListener('click', function(){
+		getDataFromDB('editorial', 'leereditorial.php');
+	}, false);*/
+	</script>
 </body>
 </html>
