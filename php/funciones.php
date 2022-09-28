@@ -1,9 +1,11 @@
 ﻿<?php 
+// agregar todos los reportes
+error_reporting(E_ALL);
 include('credenciales.php');
 
 function coneccion()
 {
-		$con = mysqli_connect(HOST, USER, PASS);
+		$con = mysqli_connect(HOST, USER, PASS) OR error_log('No se pudo conectar a la base de datos '.date('l , F, Y'), 3, 'db_error.txt');
 		if($con){
 			// si la coneccion es exitosa
 			return $con;
