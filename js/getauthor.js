@@ -1,16 +1,16 @@
 // Obtener datos desde la base de datos usando ajax 
-var xhr = new Array(1);
-function getDataFromDB(eID){
-	if(!xhr[0]){
-		xhr[0] = new XMLHttpRequest();
+;
+function getAuthor(eID){
+	if(!xhr[2]){
+		xhr[2] = new XMLHttpRequest();
 	}
 	var element = document.getElementBy(eID);
-	xhr[0].open('GET', 'leerauthor.php', true);
-	xhr[0].onreadystatechange = function(){
-		if(xhr[0].status === 200 && xhr.readyState === 4){
-			element.innerHTML = xhr[0].responseText;
+	xhr[2].open('GET', 'leerauthor.php', true);
+	xhr[2].onreadystatechange = function(){
+		if(xhr[2].status === 200 && xhr.readyState === 4){
+			element.innerHTML = xhr[2].responseText;
 		}
 	}
-	xhr[0].send(null);
+	xhr[2].send(null);
 }
 

@@ -14,7 +14,7 @@
 	$descripcion = addslashes($_POST['descripcion']); //textarea
 	$capitulos = $_POST['capitulos']; // Numeros
 	$paginas = $_POST['paginas'];
-	$cover = $_FILE['cover'];
+	$cover = $_POST['cover'];
 	$categorias = $_POST['categorias']; // selector multiple 
 	$tipodetexto = $_POST['tipodetexto'];
 	$fechadepublicacion = $_POST['fechadepublicacion'];

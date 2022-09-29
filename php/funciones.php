@@ -43,7 +43,7 @@ function consulta($db, $sql){
 		$num = mysqli_num_rows($resultado); // Almacenamos el numero de coincidencias encontradas 
 		if($num >= 1){ // Si hay mas de un resultado 
 			//echo 'Hay mas de un resultado';
-			$row = mysqli_fetch_array($resultado, MYSQLI_NUM);
+			$row = mysqli_fetch_array($resultado, MYSQLI_BOTH);
 			return $row;
 		}else{
 			//echo 'No hay ningun resultado encontrado en la consulta ';
@@ -95,22 +95,27 @@ function leerAuthor(){
 	$con = coneccion();
 	//Hacemos una consulta 
 	$db = 'book';
-	mysqli_select_db($con, $db); //Seleccionamo la base de datos
+	seleccionar_db($con, $db);
 	$query = "SELECT author_id, author_name, author_last_name FROM author";
 	$result = mysqli_query($con, $query);
-	$num = mysqli_num_rows($result);
-	if($num >= 1){
-	while($row = mysqli_fetch_array($result, MYSQLI_BOTH)){
-		echo "<option value=\"$row[0]\">".$row[1].' '.$row[2].'</option>';
+	if($result){
+		$num = mysqli_num_rows($result); // Almacenamos el numero de resultado si existe 
+		if($num >= 1){ // Si hay mas de un resultado 
+			while($row = mysqli_fetch_array($result, MYSQLI_BOTH)){
+				echo "<option value=\"$row[0]\">".$row[1]." ".$row[2]."</option>";
+			}
+		}else{
+			echo '<option>No hay resultados</option>';
 		}
 	}else{
-		echo '<option>No hay autores</option>';
+		echo '<option>Error no se envio la peticion</option>';
 	}
-}
+}// Fin de la funcion 
 
 function leerEditorial(){
 	$con = coneccion();
-	mysqli_select_db($con, 'book');
+	$db = 'book';
+	seleccionar_db($con, $db);
 	$select = "SELECT editorial_id, editorial_name FROM editorial";
 	$query = mysqli_query($con, $select);
 	if($query){

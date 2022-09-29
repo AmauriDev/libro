@@ -18,11 +18,12 @@
 				<li class="list_items"><a href="editorial.html">Agregar editorial</a></li>
 				<li class="list_items"><a href="libro.php">Agregar libros</a></li>
 				<li class="list_items"><a href="php/verlibros.php">Ver libros</a></li>
+				<li class="list_items"><a href="php/notificacion.php">mysqli_affected_rows()</a></li>
 			</ul>
 		</nav>
 		<article>
 			<h1>Agregar libros</h1>
-			<form class="form" method="post" action="php/ver.php" target="_blank">
+			<form class="form" method="post" action="php/ver.php" target="_blank" enctype="multipart/form-data">
 				<label>Titulo</label>
 				<input type="text" name="titulo" id="titutlo"/>
 				<label>Autor</label>
@@ -35,6 +36,7 @@
 				</select>
 				<label>ISBN</label>
 				<input type="text" name="isbn" id="isbn" />
+				<div id="warningIsbn"></div>
 				<label>Descripcion</label>
 				<textarea name="descripcion" id="descripcion"></textarea>
 				<label>Capitulos</label>
@@ -59,15 +61,22 @@
 	</section>
 	<script src="js/getdatafromdb.js"></script>
 	<script>
-	getDataFromDB('author', 'leerauthor.php');
-	getDataFromDB('editorial', 'leereditorial.php');
+	getAuthor('author', 'leerauthor.php');
+	getEditorial('editorial', 'leereditorial.php');
 	var author = document.getElementById('author');
 	var editorial = document.getElementById('editorial');
+	var isbn = document.getElementById('isbn');
+	isbn.addEventListener('blur', function(){
+		getISBN('warningIsbn', 'php/isbn.php?isbn='+isbn.value);
+	}, false);
+	
+	
 	
 	/*author.addEventListener('click', function(){
 		getDataFromDB('author', 'leerauthor.php');
 	}, false);
 	
+	/*
 	editorial.addEventListener('click', function(){
 		getDataFromDB('editorial', 'leereditorial.php');
 	}, false);*/

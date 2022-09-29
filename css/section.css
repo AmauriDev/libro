@@ -1,4 +1,12 @@
 .app{
 	width:500px;
-	margin:0 auto; // centralizar la caja 
+	margin:0 auto;  
+}
+.warning{
+	color:red;
+	font-weight:bold;
+}
+.available{
+	color:green;
+	
 }
