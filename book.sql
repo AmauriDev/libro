@@ -29,3 +29,12 @@ book_type_text VARCHAR(100) NOT NULL,
 book_date DATE NOT NULL,
 PRIMARY KEY(book_id)
 );
+
+CREATE TABLE files(
+files_id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+files_name VARCHAR(100) NOT NULL,
+files_type VARCHAR(4) NOT NULL,
+files_size INT(6) UNSIGNED NOT NULL,
+PRIMARY KEY(files_id),
+KEY files_name(files_name)
+);
