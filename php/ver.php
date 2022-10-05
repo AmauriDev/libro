@@ -14,13 +14,13 @@
 	$descripcion = addslashes($_POST['descripcion']); //textarea
 	$capitulos = $_POST['capitulos']; // Numeros
 	$paginas = $_POST['paginas'];
-	$categorias = $_POST['categorias']; // selector multiple 
+	
 	$tipodetexto = $_POST['tipodetexto'];
 	$fechadepublicacion = $_POST['fechadepublicacion'];
 	// guardar el resultado obtenido de la tabla archivos 
-	$id_file = getidfiles();
+	//$id_file = getidfiles();
 	//Agregarlo un numero adicional al obtenido de la tabla archivo 
-	$id_file = (int) $id_file + 1; 
+	//$id_file = (int) $id_file[0] + 1; 
 	$con = coneccion(); // Creamos una coneccion 
 	$db = 'book'; // Nombre de la base e datos 
 	seleccionar_db($con, $db);
@@ -37,19 +37,23 @@
 	$file_inserted = mysqli_query($con, $file_insert);
 	if($file_inserted){
 		move_uploaded_file($file_tmp, $root.$file_name);
-	}else{
-		echo 'Archivo no insertado ';
-	}
+		$id_files = mysqli_insert_id($con); //Obtengo el ultimo id que introduje en la tabla files 
+		if($id_files > 0){ // Si esta variable obtiene un valor mayor a 0 proceder 
+		// insertar datos a la table libros 
+			$insert = "INSERT INTO books VALUES ('', '$autor', '$editorial', '$titulo', '$isbn', '$descripcion', '$capitulos', '$paginas', '$cover', '$tipodetexto', '$fechadepublicacion', '$id_files')";
+			$inserted =  mysqli_query($con, $insert);
+			if($inserted){
+				echo 'Se guardaron correctamente';
+			}else{
+				echo 'No se pudo guardar '.mysqli_error();
+				}
+			}
+		}else{
+			echo 'Archivo no insertado ';
+		}
 	
 	
-	// insertar datos a la table libros 
-	$insert = "INSERT INTO books VALUES ('', '$autor', '$editorial', '$titulo', '$isbn', '$descripcion', '$capitulos', '$paginas', '$cover', '$tipodetexto', '$fechadepublicacion', '$id_file')";
-	$inserted =  mysqli_query($con, $insert);
-	if($inserted){
-		echo 'Se guardaron correctamente';
-	}else{
-		echo 'No se pudo guardar '.mysqli_error();
-	}
+	
 	?>
 </body>
 </html>

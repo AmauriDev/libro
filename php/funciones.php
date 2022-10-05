@@ -139,7 +139,7 @@ function getidfiles(){
 	if($query){
 		if(mysqli_num_rows($query) >= 1){
 			$id = mysqli_fetch_row($query);
-			return $id;
+			return $id[0];
 		}else{
 			return NULL;
 		}

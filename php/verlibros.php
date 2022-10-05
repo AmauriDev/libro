@@ -17,10 +17,14 @@ padding:0; margin:0;
 	
 	
 }
+body{
+	background-color:gray;
+}
 #wrapper{
 	margin: auto;
 	width:960px;
 	overflow:hidden;
+	background-color:white;
 }
 .title, .description{
 width:100%;
