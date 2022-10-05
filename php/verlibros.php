@@ -45,7 +45,7 @@ include('funciones.php');
 $con = coneccion();
 $db = 'book';
 mysqli_select_db($con, $db);
-$select = "SELECT book_title, book_description FROM books, author, editorial WHERE books.autor_id = author.author_id AND books.editorial_id = editorial.editorial_id";
+$select = "SELECT book_title, book_description, files_name FROM books, author, editorial, files WHERE books.autor_id = author.author_id AND books.editorial_id = editorial.editorial_id AND books.files_id = files.files_id ORDER BY book_id";
 $query = mysqli_query($con, $select);
 if($query){
 	$num = mysqli_num_rows($query);
@@ -54,7 +54,7 @@ if($query){
 			echo '<div class=\'book\'>';
 			echo '<div class=\'title\'><b>'.$row['book_title'].'</b></div>'; 
 			echo '<hr>';
-			echo '<img class=\'img\'/ alt=\'si la imagen aqui va una imagen\'>';
+			echo '<img class=\'img\'/ alt=\'si la imagen aqui va una imagen\' src=\'../img/'.$row['files_name'].'\'>';
 			echo '<div class=\'description\'>'.$row['book_description'].'</div>';
 			echo '</div>';// div book
 		}
@@ -69,23 +69,7 @@ if($query){
 
 </div>
 <script>
-var imgArray = new Array();
-imgArray[0] = 'img2.jpg';
-imgArray[1] = 'img3.jpg';
-imgArray[2] = 'img1.jpg';
-imgArray[3] = 'img6.jpg';
-imgArray[4] = 'img4.jpg';
-imgArray[5] = 'img7.jpg';
-imgArray[6] = 'img8.jpg';
-imgArray[7] = 'img9.jpg';
 
-var imgs = document.querySelectorAll('.img');
-var imgLenght, i;
-i = null;
-imgLenght = imgs.length;
-for(i = 0; i <= imgLenght; i++){
-	imgs[i].src = '../img/'+imgArray[i];
-}
 </script>
 </body>
 </html>

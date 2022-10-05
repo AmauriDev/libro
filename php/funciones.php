@@ -131,4 +131,25 @@ function leerEditorial(){
 	}
 }// end function
 
+function getidfiles(){
+	$con = coneccion();
+	seleccionar_db($con, 'book');
+	$select = "SELECT files_id FROM files";
+	$query = mysqli_query($con, $select);
+	if($query){
+		if(mysqli_num_rows($query) >= 1){
+			$id = mysqli_fetch_row($query);
+			return $id;
+		}else{
+			return NULL;
+		}
+	}else{
+		echo 'La consulta no fue enviada';
+	}
+	mysqli_close($con);
+	$con = null;
+	unset($con);
+}
+
+
 ?>
